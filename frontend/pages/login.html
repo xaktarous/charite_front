@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion - Blog</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      rel="icon"
+      href="../assets/icons/charite_icon.png"
+      type="image/jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Connexion</h1>
+        <form id="login-form">
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="username"
+              placeholder="Nom d'utilisateur"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Mot de passe"
+              required
+            />
+          </div>
+          <div class="remember-me">
+            <input type="checkbox" id="remember" checked="true" />
+            <label for="remember">Se souvenir de moi</label>
+          </div>
+          <button type="submit">Se connecter</button>
+          <div id="error-message" class="error-message"></div>
+        </form>
+        <div class="links">
+          <a href="register.html">Pas encore inscrit ? Créer un compte</a>
+          <a href="forgot-password.html">Mot de passe oublié ?</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>

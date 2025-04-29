@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Charité Espoir</title>
+    <link
+      rel="icon"
+      href="../assets/icons/charite_icon.png"
+      type="image/jpg"
+    />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Charité Espoir</h2>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li id="nav-dashboard" class="active">
+              <a href="#"
+                ><i class="fas fa-tachometer-alt"></i> Tableau de bord</a
+              >
+            </li>
+            <li id="nav-articles-li">
+              <a href="#" id="nav-articles"
+                ><i class="fas fa-newspaper"></i> Articles</a
+              >
+            </li>
+            <li id="nav-profile-li">
+              <a href="#" id="nav-profile"
+                ><i class="fas fa-user"></i> Profile</a
+              >
+            </li>
+            <li class="separator"></li>
+            <li>
+              <a href="index.html" target="_blank"
+                ><i class="fas fa-home"></i> Voir le blog</a
+              >
+            </li>
+            <li>
+              <a href="#" id="logout"
+                ><i class="fas fa-sign-out-alt"></i> Déconnexion</a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="user-info">
+            <div class="user-profile">
+              <img src="" alt="Avatar" id="user-avatar" />
+              <span id="user-name">Admin</span>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+          <!-- Stats -->
+          <section class="overview-section">
+            <h2>Vue d'ensemble</h2>
+            <div class="stats-container" id="stats-section">
+              <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
+                <div class="stat-info">
+                  <h3>Articles</h3>
+                  <p id="total-posts">0</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                <div class="stat-info">
+                  <h3>Commentaires</h3>
+                  <p id="total-comments">0</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Articles Section -->
+          <section class="articles-section" id="articles-section">
+            <div class="section-header">
+              <h2>Gestion des articles</h2>
+              <button id="new-post-btn" class="primary-btn">
+                <i class="fas fa-plus"></i> Nouvel article
+              </button>
+            </div>
+            <div class="search-bar">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Rechercher un article..."
+              />
+              <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div id="articles-container">
+              <!-- Cartes d'articles injectées par JS -->
+            </div>
+            <div id="pagination-buttons" class="mt-4"></div>
+          </section>
+
+          <!-- Create/Edit Post Form -->
+          <section
+            class="create-post-section"
+            id="create-post-section"
+            style="display: none"
+          >
+            <div class="section-header">
+              <h2 id="form-title">Créer un nouvel article</h2>
+              <button id="back-to-list" class="secondary-btn">
+                <i class="fas fa-arrow-left"></i> Retour
+              </button>
+            </div>
+            <form id="postForm" class="dashboard-form">
+              <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title" required />
+              </div>
+              <div class="form-group">
+                <label for="content">Contenu</label>
+                <textarea id="content" name="content" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="image">Image de couverture</label>
+                <div class="file-input-container">
+                  <input type="file" id="image" name="image" />
+                  <label for="image" class="file-input-label">
+                    <i class="fas fa-upload"></i> Choisir une image
+                  </label>
+                </div>
+                <div id="image-preview" class="image-preview"></div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="primary-btn">
+                  <i class="fas fa-save"></i> Enregistrer
+                </button>
+                <button type="button" id="cancelEdit" class="secondary-btn">
+                  <i class="fas fa-times"></i> Annuler
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Profile Section -->
+          <section
+            class="profile-section"
+            id="profile-section"
+            style="display: none"
+          >
+            <h2>Profil du créateur</h2>
+            <form id="creatorForm" class="dashboard-form">
+              <div class="form-group">
+                <label for="creatorName">Nom du créateur</label>
+                <input
+                  type="text"
+                  id="creatorName"
+                  name="creatorName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="creatorDescription">Biographie</label>
+                <textarea
+                  id="creatorDescription"
+                  name="creatorDescription"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="creatorImage">Photo de profile</label>
+                <div class="file-input-container">
+                  <input type="file" id="creatorImage" name="creatorImage" />
+                  <label for="creatorImage" class="file-input-label">
+                    <i class="fas fa-upload"></i> Choisir une photo
+                  </label>
+                </div>
+                <div id="creatorImagePreview" class="image-preview"></div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="primary-btn">
+                  <i class="fas fa-save"></i> Enregistrer
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

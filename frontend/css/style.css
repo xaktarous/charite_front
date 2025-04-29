@@ -1,0 +1,476 @@
+/* style.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #212529; 
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+/* Navbar personnalisée */
+
+.custom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 0.5rem 1rem; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-navbar {
+  background-color: #2f855a; /* Vert foncé doux */
+}
+
+.custom-navbar .nav-link {
+  font-weight: bold;
+}
+
+.custom-navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+}
+
+.dropdown-item:hover {
+  background-color: #68d391;
+  color: white;
+}
+
+
+.user-icon-container {
+  width:  27px;
+  height: 27px;
+  border-radius: 50%; /* Vert doux */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.user-icon-container img {
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+.compteicon{
+  text-decoration: none !important;
+}
+
+.user-icon-container:hover {
+  background-color: #45a049; /* Changement de couleur au survol */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none !important;
+}
+
+
+/* Header déjà bien stylisé */
+header p.lead {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #fdfdfd;
+}
+
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/* card styling */
+
+
+/* Card À propos du créateur */
+#creator-card {
+border: 2px solid #2f855a; /* Bordure verte */
+border-radius: 10px; /* Coins arrondis */
+background-color: #f4f9f4; /* Fond clair */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+#creator-card .card-header {
+background-color: #2f855a; /* Fond vert pour l'en-tête */
+color: white; /* Texte blanc */
+font-size: 1.2rem; /* Taille de police pour l'en-tête */
+font-weight: bold; /* Police en gras */
+text-align: center;
+padding: 1rem;
+border-radius: 10px 10px 0 0; /* Coins arrondis uniquement en haut */
+}
+
+#creator-card led-body {
+padding: 1.5rem;
+text-align: center;
+}
+
+#creator-image {
+width:  100px; /* Largeur de l'image */
+height: 100px; /* Hauteur de l'image */
+object-fit: cover; /* L'image est découpée pour s'adapter au cadre circulaire */
+border-radius: 50%; /* Forme circulaire */
+border: 1px solid #2f855a; /* Bordure verte autour de l'image */
+}
+
+#creator-name {
+font-size: 1.5rem; /* Taille de police pour le nom */
+color: #2f855a; /* Couleur verte */
+font-weight: bold; /* Police en gras */
+margin-top: 1rem;
+}
+
+#creator-description {
+font-size: 1rem; /* Taille de police pour la description */
+color: #666; /* Couleur du texte */
+margin-top: 0.5rem;
+font-style: italic; /* Italique pour la description */
+}
+
+/* Pour rendre la card plus réactive */
+@media (max-width: 768px) {
+#creator-card {
+  margin-top: 1rem; /* Espace supérieur sur petits écrans */
+}
+
+#creator-image {
+  width: 60px; /* Réduire l'image sur les petits écrans */
+  height: 60px;
+}
+
+
+}
+
+/* Pour rendre la card plus réactive */
+
+
+article {
+  background: #ffffff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+article img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+article p {
+  white-space: pre-line;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+article h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2f855a;
+  word-break: break-word;
+}  
+
+
+
+article:hover {
+  transform: scale(1.01);
+}
+
+article h2 {
+  color: #2f855a;
+  margin-bottom: 0.5rem;
+}
+
+/* Style pour la section des commentaires */
+/* Style des commentaires */
+.comments-container {
+margin-top: 1rem;
+}
+
+.comment {
+display: flex;
+align-items: flex-start;
+gap: 1rem;
+margin-bottom: 1.5rem;
+padding: 1rem;
+background-color: #ffffff;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+transition: box-shadow 0.2s ease;
+}
+
+.comment:hover {
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.comment-profile-image {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+object-fit: cover;
+flex-shrink: 0;
+}
+
+.comment-content {
+flex: 1;
+}
+
+.comment-username {
+font-weight: 600;
+color: #2f855a;
+margin-bottom: 0.3rem;
+display: block;
+font-size: 1rem;
+}
+
+.comment-text {
+font-size: 0.95rem;
+line-height: 1.5;
+color: #444;
+}
+
+
+textarea {
+width: 100%; /* Assure que le textarea occupe toute la largeur de la div */
+padding: 1rem;
+margin-top: 1rem;
+border: 1px solid #ccc;
+border-radius: 8px;
+font-size: 1rem;
+box-sizing: border-box; /* Inclus padding et border dans la largeur totale */
+resize: vertical; /* Permet à l'utilisateur de redimensionner la hauteur */
+}
+
+button {
+padding: 0.8rem;
+background-color: #2f855a;
+color: white;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-weight: bold;
+margin-top: 0.5rem;
+}
+
+button:hover {
+background-color: #276749;
+}
+
+
+
+
+/* footer.css */
+/* 
+.footer {
+  background-color: #2f855a;
+  color: white;
+  padding: 2rem 1rem 1rem;
+  margin-top: 3rem;
+}
+
+
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1 1 250px;
+  margin: 1rem;
+}
+
+
+
+
+ */
+
+
+#footer-social  {
+  width: 24px;
+  margin-right: 5px;
+  transition: transform 0.2s;
+}
+
+#footer-social:hover {
+  transform: scale(1.2);
+}
+
+
+
+#footer-links  {
+  color: white;
+  text-decoration: none;
+}
+
+#footer-links:hover {
+  text-decoration: underline;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+
+
+.social-post {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 0;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+
+
+/* Post général */
+.social-post {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Titre du post */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Image de post (max hauteur ajustée) */
+.post-img {
+  max-height: 250px;
+  object-fit: cover;
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/* Texte du post */
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Section commentaires */
+.comment-section {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* Input + bouton en ligne */
+.comment-section .d-flex {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Champ commentaire */
+.comment-input {
+  flex-grow: 1;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+/* Boutons */
+.btn-send, .btn-toggle-comments {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Liste de commentaires */
+.comment-list {
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+/* Élément commentaire */
+.comment-list li {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Avatar */
+.comment-list img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.creator-card {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  
+}
+
+.creator-card h5 {
+  color: #2f855a;
+  text-transform: capitalize;
+
+}
+
+.creator-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+

@@ -29,7 +29,7 @@ if (isTokenExpired()) {
         if (data.image) {
           userIconOrText.innerHTML = `
           <div class="user-icon-container">
-            <img src="http://localhost:8000/${data.image}" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
+            <img src="${data.image}" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
           </div>`;
         } else {
           // Sinon, afficher l'icône par défaut

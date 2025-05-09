@@ -17,7 +17,7 @@ if (isTokenExpired()) {
 
   if (token) {
     // Requête vers /profile/ pour récupérer les infos utilisateur, dont l'image
-    fetch("http://localhost:8000/profile/", {
+    fetch("https://charite-production.up.railway.app/profile/", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -51,7 +51,7 @@ if (isTokenExpired()) {
           .addEventListener("click", async function (e) {
             e.preventDefault();
             try {
-              const response = await fetch("http://localhost:8000/logout/", {
+              const response = await fetch("https://charite-production.up.railway.app/logout/", {
                 method: "POST",
                 headers: {
                   Authorization: "Bearer " + token,

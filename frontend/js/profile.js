@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // === 1. Charger les données utilisateur ===
-  fetch('http://localhost:8000/profile/', {
+  fetch('https://charite-production.up.railway.app/profile/', {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/profile/', {
+      const res = await fetch('https://charite-production.up.railway.app/profile/', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

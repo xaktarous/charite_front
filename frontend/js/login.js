@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       // Envoyer la requête à ton endpoint 'login/'
-      const response = await fetch("http://localhost:8000/login/", {
+      const response = await fetch("https://charite-production.up.railway.app/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

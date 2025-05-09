@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hasError) return;
 
         try {
-            const response = await fetch('http://localhost:8000/register/', {
+            const response = await fetch('https://charite-production.up.railway.app/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

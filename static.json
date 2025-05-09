@@ -1,7 +1,5 @@
 {
-  "root": "/frontend/",
+  "root": "frontend/pages",
   "clean_urls": false,
-  "routes": {
-    "/**": "/index.html"
-  }
+  "routes": {}
 }

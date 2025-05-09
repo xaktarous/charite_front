@@ -41,7 +41,7 @@ document.getElementById("email-form").addEventListener("submit", function (e) {
 
   emailError.innerText = "";
 
-  fetch("http://127.0.0.1:8000/forget_password/", {
+  fetch("https://charite-production.up.railway.app/forget_password/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +83,7 @@ document.getElementById("code-form").addEventListener("submit", function (e) {
     return;
   }
 
-  fetch("http://127.0.0.1:8000/verify_reset_code/", {
+  fetch("https://charite-production.up.railway.app/verify_reset_code/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -141,7 +141,7 @@ document.getElementById("resend-code").addEventListener("click", function () {
     return;
   }
 
-  fetch("http://127.0.0.1:8000/forget_password/", {
+  fetch("https://charite-production.up.railway.app/forget_password/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

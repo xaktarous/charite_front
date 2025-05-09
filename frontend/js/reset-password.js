@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hasError) return;
 
         // Envoi au backend
-        fetch('http://127.0.0.1:8000/reset_password/', {
+        fetch('https://charite-production.up.railway.app/reset_password/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -103,7 +103,7 @@ let totalPages = 1;
 
 async function fetchArticles(page = 1) {
   try {
-    const res = await fetch(`http://127.0.0.1:8000/articles/?page=${page}`);
+    const res = await fetch(`https://charite-production.up.railway.app/articles/?page=${page}`);
     const data = await res.json();
     const articles = data.results || [];
     const container = document.getElementById("blog-posts");
@@ -128,7 +128,7 @@ async function fetchArticles(page = 1) {
       const imageUrl = hasImage
         ? art.image.startsWith("http")
           ? art.image
-          : `http://127.0.0.1:8000${art.image}`
+          : `https://charite-production.up.railway.app${art.image}`
         : null;
 
       const card = document.createElement("div");
@@ -171,7 +171,7 @@ async function fetchArticles(page = 1) {
         if (commentList.classList.contains("d-none")) {
           if (token) {
             const comments = await fetch(
-              `http://127.0.0.1:8000/articles/${art.id}/comments/`,
+              `https://charite-production.up.railway.app/articles/${art.id}/comments/`,
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -182,7 +182,7 @@ async function fetchArticles(page = 1) {
               const profilePic = c.user?.image
                 ? c.user.image.startsWith("http")
                   ? c.user.image
-                  : `http://127.0.0.1:8000${c.user.image}`
+                  : `https://charite-production.up.railway.app${c.user.image}`
                 : "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg";
 
               const li = document.createElement("li");
@@ -214,7 +214,7 @@ async function fetchArticles(page = 1) {
 
         if (!token) return alert("Vous devez être connecté.");
         if (content) {
-          await fetch(`http://127.0.0.1:8000/articles/${art.id}/comments/`, {
+          await fetch(`https://charite-production.up.railway.app/articles/${art.id}/comments/`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -259,12 +259,12 @@ function afficherBoutonsPagination() {
 
 async function fetchCreatorInfo() {
   try {
-    const res = await fetch("http://127.0.0.1:8000/creator/");
+    const res = await fetch("https://charite-production.up.railway.app/creator/");
     const data = await res.json();
 
     const imageUrl = data.image?.startsWith("http")
       ? data.image
-      : `http://127.0.0.1:8000${data.image}`;
+      : `https://charite-production.up.railway.app${data.image}`;
 
     const container = document.getElementById("creator-info");
     container.innerHTML = `

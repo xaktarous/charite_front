@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // — Statistiques —
 function chargerStatistiques(token) {
-  fetch("http://127.0.0.1:8000/stats/", {
+  fetch("https://charite-production.up.railway.app/stats/", {
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => res.json())
@@ -55,7 +55,7 @@ function chargerStatistiques(token) {
 
 // — Profil en haut —
 function chargerProfilUtilisateur(token) {
-  fetch("http://127.0.0.1:8000/profile/", {
+  fetch("https://charite-production.up.railway.app/profile/", {
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => res.json())
@@ -64,7 +64,7 @@ function chargerProfilUtilisateur(token) {
       const img = data.image
         ? data.image.startsWith("http")
           ? data.image
-          : `http://127.0.0.1:8000${data.image}`
+          : `https://charite-production.up.railway.app:8000${data.image}`
         : "default-avatar.png";
       document.getElementById("user-name").textContent = name;
       document.getElementById("user-avatar").src = img;
@@ -75,7 +75,7 @@ function chargerProfilUtilisateur(token) {
 // — Articles & Commentaires —
 let nextPageUrl = null;
 let prevPageUrl = null;
-let baseUrl = "http://127.0.0.1:8000/articles/";
+let baseUrl = "https://charite-production.up.railway.app/articles/";
 let currentSearch = ""; // Recherche active
 
 async function afficherArticles(token, url = null) {
@@ -115,7 +115,7 @@ async function afficherArticles(token, url = null) {
       const imageUrl = art.image
         ? art.image.startsWith("http")
           ? art.image
-          : `http://127.0.0.1:8000${art.image}`
+          : `https://charite-production.up.railway.app:8000${art.image}`
         : null;
 
       const card = document.createElement("div");
@@ -142,7 +142,7 @@ async function afficherArticles(token, url = null) {
 
       // Charger les commentaires
       const comments = await fetch(
-        `http://127.0.0.1:8000/articles/${art.id}/comments/`,
+        `https://charite-production.up.railway.app/articles/${art.id}/comments/`,
         { headers: { Authorization: `Bearer ${token}` } }
       ).then((r) => (r.ok ? r.json() : []));
 
@@ -238,7 +238,7 @@ function setupArticleListeners(card, articleId, token) {
   list.querySelectorAll("button").forEach((btn) =>
     btn.addEventListener("click", () => {
       fetch(
-        `http://127.0.0.1:8000/articles/${articleId}/comments/${btn.dataset.id}/`,
+        `https://charite-production.up.railway.app/articles/${articleId}/comments/${btn.dataset.id}/`,
         { method: "DELETE", headers: { Authorization: `Bearer ${token}` } }
       ).then((r) => r.ok && afficherArticles(token));
     })
@@ -248,7 +248,7 @@ function setupArticleListeners(card, articleId, token) {
   addBtn.addEventListener("click", () => {
     const text = input.value.trim();
     if (!text) return;
-    fetch(`http://127.0.0.1:8000/articles/${articleId}/comments/`, {
+    fetch(`https://charite-production.up.railway.app/articles/${articleId}/comments/`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -261,7 +261,7 @@ function setupArticleListeners(card, articleId, token) {
   // delete article
   delArtBtn.addEventListener("click", () => {
     if (!confirm("Supprimer cet article ?")) return;
-    fetch(`http://127.0.0.1:8000/articles/${articleId}/`, {
+    fetch(`https://charite-production.up.railway.app/articles/${articleId}/`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     }).then((r) => r.ok && afficherArticles(token));
@@ -270,7 +270,7 @@ function setupArticleListeners(card, articleId, token) {
   // edit article
   // edit article
   editBtn.addEventListener("click", async () => {
-    const res = await fetch(`http://127.0.0.1:8000/articles/${articleId}/`, {
+    const res = await fetch(`https://charite-production.up.railway.app/articles/${articleId}/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -290,7 +290,7 @@ function setupArticleListeners(card, articleId, token) {
         const img = document.createElement("img");
         img.src = art.image.startsWith("http")
           ? art.image
-          : `http://127.0.0.1:8000${art.image}`;
+          : `https://charite-production.up.railway.app:8000${art.image}`;
         img.style.maxWidth = "150px";
         img.style.borderRadius = "8px";
         img.style.marginTop = "10px";
@@ -347,8 +347,8 @@ function setupFormulaireArticle(token) {
 
     const editId = form.dataset.editId;
     const url = editId
-      ? `http://127.0.0.1:8000/articles/${editId}/`
-      : "http://127.0.0.1:8000/articles/";
+      ? `https://charite-production.up.railway.app/articles/${editId}/`
+      : "https://charite-production.up.railway.app/articles/";
     const method = editId ? "PUT" : "POST";
 
     const title = form.querySelector('[name="title"]').value;
@@ -479,7 +479,7 @@ function mettreAJourProfil(token) {
       formData.append("image", imageInput.files[0]);
     }
 
-    fetch("http://127.0.0.1:8000/profile/", {
+    fetch("https://charite-production.up.railway.app/profile/", {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -502,7 +502,7 @@ function mettreAJourProfil(token) {
 
 // — Profil GET —
 function Profil(token) {
-  fetch("http://127.0.0.1:8000/profile/", {
+  fetch("https://charite-production.up.railway.app/profile/", {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -522,7 +522,7 @@ function Profil(token) {
         const img = document.createElement("img");
         img.src = data.image.startsWith("http")
           ? data.image
-          : `http://127.0.0.1:8000${data.image}`;
+          : `https://charite-production.up.railway.app:8000${data.image}`;
         img.style.maxWidth = "150px";
         img.style.borderRadius = "8px";
         img.style.marginTop = "10px";
@@ -581,7 +581,7 @@ function setupLogout() {
       sessionStorage.getItem("access_token");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/logout/", {
+      const res = await fetch("https://charite-production.up.railway.app/logout/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

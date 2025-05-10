@@ -126,7 +126,7 @@ async function fetchArticles(page = 1) {
     articles.forEach((art) => {
       const hasImage = art.image && art.image !== "";
       const imageUrl = hasImage
-        ? art.image.startsWith("http")
+        ? art.image.startsWith("https")
           ? art.image
           : `https://charite-production.up.railway.app${art.image}`
         : null;
@@ -180,7 +180,7 @@ async function fetchArticles(page = 1) {
             commentList.innerHTML = "";
             comments.forEach((c) => {
               const profilePic = c.user?.image
-                ? c.user.image.startsWith("http")
+                ? c.user.image.startsWith("https")
                   ? c.user.image
                   : `https://charite-production.up.railway.app${c.user.image}`
                 : "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg";
@@ -262,7 +262,7 @@ async function fetchCreatorInfo() {
     const res = await fetch("https://charite-production.up.railway.app/creator/");
     const data = await res.json();
 
-    const imageUrl = data.image?.startsWith("http")
+    const imageUrl = data.image?.startsWith("https")
       ? data.image
       : `https://charite-production.up.railway.app${data.image}`;
 

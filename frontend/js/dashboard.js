@@ -62,7 +62,7 @@ function chargerProfilUtilisateur(token) {
     .then((data) => {
       const name = data.username || "Utilisateur";
       const img = data.image
-        ? data.image.startsWith("http")
+        ? data.image.startsWith("https")
           ? data.image
           : `https://charite-production.up.railway.app/${data.image}`
         : "default-avatar.png";
@@ -113,7 +113,7 @@ async function afficherArticles(token, url = null) {
 
     for (const art of articles) {
       const imageUrl = art.image
-        ? art.image.startsWith("http")
+        ? art.image.startsWith("https")
           ? art.image
           : `https://charite-production.up.railway.app/${art.image}`
         : null;
@@ -288,7 +288,7 @@ function setupArticleListeners(card, articleId, token) {
 
       if (art.image) {
         const img = document.createElement("img");
-        img.src = art.image.startsWith("http")
+        img.src = art.image.startsWith("https")
           ? art.image
           : `https://charite-production.up.railway.app/${art.image}`;
         img.style.maxWidth = "150px";
@@ -520,7 +520,7 @@ function Profil(token) {
       preview.innerHTML = "";
       if (data.image) {
         const img = document.createElement("img");
-        img.src = data.image.startsWith("http")
+        img.src = data.image.startsWith("https")
           ? data.image
           : `https://charite-production.up.railway.app/${data.image}`;
         img.style.maxWidth = "150px";

@@ -2,11 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('profileForm');
   const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
 
-  if (isTokenExpired()) {
-    return this.location.href = "login.html";
+  if (typeof isTokenExpired === "undefined") {
+    function isTokenExpired() {
+      const expirationDateStr = localStorage.getItem("expiration_date");
+      if (!expirationDateStr) {
+        return true;
+      }
+      const expirationDate = new Date(expirationDateStr);
+      const now = new Date();
+      return now >= expirationDate;
+    }
   }
 
-  // === Fonctions utilitaires ===
+  if (isTokenExpired()) {
+    return (window.location.href = "login.html");
+  }
+
   function showError(input, errorId, message) {
     input.classList.add('is-invalid');
     input.classList.remove('is-valid');
@@ -34,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showMessage(message, type = 'success') {
+    const messageBox = document.getElementById('messageBox');
     messageBox.innerHTML = `
       <div class="alert alert-${type}" role="alert">${message}</div>
     `;
@@ -52,10 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('email').value = data.email || '';
     document.getElementById('firstName').value = data.first_name || '';
     document.getElementById('lastName').value = data.last_name || '';
+
+    if (data.image) {
+      const preview = document.getElementById("imagePreview");
+      if (preview) {
+        preview.innerHTML = "";
+        const img = document.createElement("img");
+        img.src = data.image.startsWith("https") ? data.image : data.image;
+        img.style.maxWidth = "150px";
+        img.style.borderRadius = "8px";
+        img.style.marginTop = "10px";
+        preview.appendChild(img);
+      }
+    }
   })
   .catch(err => {
     console.error('Erreur lors du chargement du profil :', err);
-    alert("Erreur lors du chargement du profil.", 'danger');
+    showMessage("Erreur lors du chargement du profil.", 'danger');
   });
 
   // === 2. Mise à jour utilisateur avec validation ===
@@ -125,44 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!res.ok) {
         console.error("Erreur API :", data);
-        alert("Erreur lors de la mise à jour : " + JSON.stringify(data), 'danger');
+        showMessage("Erreur lors de la mise à jour : " + JSON.stringify(data), 'danger');
         return;
       }
 
-      alert("Profile mis à jour avec succès !");
+      showMessage("Profil mis à jour avec succès !");
     } catch (error) {
       console.error('Erreur de mise à jour :', error);
-      alert("Une erreur est survenue lors de la mise à jour.", 'danger');
+      showMessage("Une erreur est survenue lors de la mise à jour.", 'danger');
     }
   });
 });
-
-
-
-function isTokenExpired() {
-  const expirationDateStr = localStorage.getItem("expiration_date");
-  if (!expirationDateStr) {
-      return true; // Pas de date = expiré
-  }
-
-  const expirationDate = new Date(expirationDateStr);
-  const now = new Date();
-
-  return now >= expirationDate;
-}
-
-
-function validateForm(formData) {
-  const errors = {};
-  
-  if (!formData.get('email') || !validateEmail(formData.get('email'))) {
-    errors.email = "Email invalide";
-  }
-  
-  const password = formData.get('password');
-  if (password && !isStrongPassword(password)) {
-    errors.password = "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial";
-  }
-  
-  return Object.keys(errors).length === 0 ? null : errors;
-}

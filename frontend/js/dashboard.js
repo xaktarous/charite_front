@@ -62,9 +62,9 @@ function chargerProfilUtilisateur(token) {
     .then((data) => {
       const name = data.username || "Utilisateur";
       const img = data.image
-        ? data.image.startsWith("https")
+        ? data.image.startsWith("http")
           ? data.image
-          : `https://charite-production.up.railway.app/${data.image}`
+          :data.image
         : "default-avatar.png";
       document.getElementById("user-name").textContent = name;
       document.getElementById("user-avatar").src = img;
@@ -115,7 +115,7 @@ async function afficherArticles(token, url = null) {
       const imageUrl = art.image
         ? art.image.startsWith("https")
           ? art.image
-          : `https://charite-production.up.railway.app/${art.image}`
+          : art.image
         : null;
 
       const card = document.createElement("div");
@@ -290,7 +290,7 @@ function setupArticleListeners(card, articleId, token) {
         const img = document.createElement("img");
         img.src = art.image.startsWith("https")
           ? art.image
-          : `https://charite-production.up.railway.app/${art.image}`;
+          : art.image;
         img.style.maxWidth = "150px";
         img.style.borderRadius = "8px";
         img.style.marginTop = "10px";
@@ -476,6 +476,7 @@ function mettreAJourProfil(token) {
 
     // Ajouter l'image si sélectionnée
     if (imageInput.files.length > 0) {
+      console.log("Image sélectionnée :", imageInput.files[0]);
       formData.append("image", imageInput.files[0]);
     }
 
@@ -522,7 +523,7 @@ function Profil(token) {
         const img = document.createElement("img");
         img.src = data.image.startsWith("https")
           ? data.image
-          : `https://charite-production.up.railway.app/${data.image}`;
+          : data.image;
         img.style.maxWidth = "150px";
         img.style.borderRadius = "8px";
         img.style.marginTop = "10px";

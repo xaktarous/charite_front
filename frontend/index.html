@@ -1,174 +1,136 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Charité Espoir</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      href="assets/icons/charite_icon.png"
-      type="image/jpg"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg shadow-sm custom-navbar sticky-top">
-      <div class="custom-container container">
-        <a class="navbar-brand fw-bold text-white" href="#">Charité Espoir</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Accueil</a>
-            </li>
-            <li class="nav-item dropdown" id="accountDropdown">
-              <a
-                class="nav-link text-white d-flex align-items-center compteicon"
-                href="#"
-                id="userDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span id="userIconOrText">Compte</span>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="userDropdown"
-                id="dropdownContent"
-              >
-                <!-- Le contenu sera injecté dynamiquement -->
-              </ul>
-            </li>
-          </ul>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog humanitaire de l'association Charité Espoir." />
+  <title>Charité Espoir</title>
+  
+  <!-- CSS minifié -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/charite_icon.png" type="image/png" />
+
+  <!-- Font Awesome minifié -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow-sm custom-navbar sticky-top">
+    <div class="custom-container container">
+      <a class="navbar-brand fw-bold text-white" href="#">Charité Espoir</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Accueil</a>
+          </li>
+          <li class="nav-item dropdown" id="accountDropdown">
+            <a class="nav-link text-white d-flex align-items-center compteicon" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span id="userIconOrText">Compte</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" id="dropdownContent">
+              <!-- Contenu dynamique injecté ici -->
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <h1 class="fw-bold">Bienvenue sur le blog de Charité Espoir</h1>
-        <p class="lead">Soutenir les plus démunis, un article à la fois.</p>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="fw-bold">Bienvenue sur le blog de Charité Espoir</h1>
+      <p class="lead">Soutenir les plus démunis, un article à la fois.</p>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container py-5">
+    <div class="row">
+      <!-- Articles -->
+      <div class="col-lg-8" id="blog-posts">
+        <!-- Les articles seront injectés ici dynamiquement -->
       </div>
-    </header>
 
-    <!-- Main -->
-    <main class="container py-5">
-      <div class="row">
-        <!-- Articles -->
-        <div class="col-lg-8" id="blog-posts">
-          <!-- Les articles seront injectés ici dynamiquement -->
-        </div>
-
-        <!-- Sidebar -->
-        <div class="col-lg-4">
-          <!-- Card À propos du créateur -->
-          <div class="card mb-4">
-            <div class="card-header">À propos du créateur</div>
-            <div class="card-body text-center" id="creator-info">
-              <img
-                id="creator-image"
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="Photo du créateur"
-              />
-              <h5 id="creator-name" class="card-title mb-1">Jean Dupont</h5>
-              <p id="creator-description" class="card-text small">
-                Passionné par l'humanitaire, Amel partage ici les actions et
-                projets menés par l'association.
-              </p>
-            </div>
-          </div>
-
-          <!-- Bloc Contact -->
-          <div class="card mb-4">
-            <div class="card-header">Contact</div>
-            <div class="card-body">
-              <p>Vous souhaitez en savoir plus ? Écrivez-nous !</p>
-              <a
-                href="mailto:amel.messaoudi2700@gmail.com"
-                target="_blank"
-                class="btn btn-outline-primary w-100"
-                >Nous contacter</a
-              >
-            </div>
-          </div>
-        </div>
-        <div id="pagination" class="mt-4 d-flex gap-2"></div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-4 bg-dark text-white">
-      <div class="container">
-        <div class="row justify-content-between text-center text-lg-start">
-          <div class="col-lg-3 mb-3">
-            <h5>Charité Espoir</h5>
-            <p>
-              Nous œuvrons chaque jour pour un monde plus solidaire. Merci de
-              soutenir notre mission.
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <!-- Card À propos du créateur -->
+        <div class="card mb-4">
+          <div class="card-header">À propos du créateur</div>
+          <div class="card-body text-center" id="creator-info">
+            <img id="creator-image" src="https://via.placeholder.com/100" class="rounded-circle mb-3" alt="Photo du créateur" loading="lazy" />
+            <h5 id="creator-name" class="card-title mb-1">Jean Dupont</h5>
+            <p id="creator-description" class="card-text small">
+              Passionné par l'humanitaire, Amel partage ici les actions et projets menés par l'association.
             </p>
           </div>
-          <div class="col-lg-2 mb-3">
-            <h5>Navigation</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-white" id="footer-links">Accueil</a>
-              </li>
-              <li>
-                <a href="profile.html" class="text-white" id="footer-links"
-                  >Profile</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-2 mb-3">
-            <h5>Suivez-nous</h5>
-            <div>
-              <a
-                href="https://web.facebook.com/groups/890056544743370/"
-                target="_blank"
-                ><i class="fab fa-facebook-f text-white" id="footer-social"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/amelmessaoudi06"
-                target="_blank"
-                ><i class="fab fa-instagram text-white" id="footer-social"></i
-              ></a>
-            </div>
-          </div>
         </div>
-        <div class="text-center pt-3 footer-bottom">
-          <p class="mb-0">&copy; 2025 Charité Espoir • Tous droits réservés</p>
+
+        <!-- Bloc Contact -->
+        <div class="card mb-4">
+          <div class="card-header">Contact</div>
+          <div class="card-body">
+            <p>Vous souhaitez en savoir plus ? Écrivez-nous !</p>
+            <a href="mailto:amel.messaoudi2700@gmail.com" target="_blank" class="btn btn-outline-primary w-100">Nous contacter</a>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+    <!-- Pagination -->
+    <div id="pagination" class="mt-4 d-flex gap-2"></div>
+  </main>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <script>
-    const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
-    if (!token) {
-        window.location.href = 'login.html'; // Redirige vers login si pas de token
-    }
-</script> -->
-    <script src="js/main.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-white">
+    <div class="container">
+      <div class="row justify-content-between text-center text-lg-start">
+        <div class="col-lg-3 mb-3">
+          <h5>Charité Espoir</h5>
+          <p>Nous œuvrons chaque jour pour un monde plus solidaire. Merci de soutenir notre mission.</p>
+        </div>
+        <div class="col-lg-2 mb-3">
+          <h5>Navigation</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white" id="footer-links">Accueil</a></li>
+            <li><a href="profile.html" class="text-white" id="footer-links">Profile</a></li>
+            <script>
+              // if user is staff, show admin link
+              const userRole = localStorage.getItem('is_staff');
+
+              if (userRole === 'true') {
+                document.write('<li><a href="dashboard.html" class="text-white" id="footer-links">Admin</a></li>');
+              }
+              
+            </script>
+            
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-3">
+          <h5>Suivez-nous</h5>
+          <div>
+            <a href="https://web.facebook.com/groups/890056544743370/" target="_blank"><i class="fab fa-facebook-f text-white" id="footer-social"></i></a>
+            <a href="https://www.instagram.com/amelmessaoudi06" target="_blank"><i class="fab fa-instagram text-white" id="footer-social"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pt-3 footer-bottom">
+        <p class="mb-0">&copy; 2025 Charité Espoir • Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
 </html>

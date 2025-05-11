@@ -199,11 +199,23 @@ article h2 {
 
 article:hover {
   transform: scale(1.01);
+  will-change: transform;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-article h2 {
-  color: #2f855a;
-  margin-bottom: 0.5rem;
+@media (max-width: 768px) {
+  article {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  
+  .creator-card {
+    margin: 1rem auto;
+  }
+  
+  .comment {
+    padding: 0.8rem;
+  }
 }
 
 /* Style pour la section des commentaires */

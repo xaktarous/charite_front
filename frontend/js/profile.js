@@ -150,3 +150,19 @@ function isTokenExpired() {
 
   return now >= expirationDate;
 }
+
+
+function validateForm(formData) {
+  const errors = {};
+  
+  if (!formData.get('email') || !validateEmail(formData.get('email'))) {
+    errors.email = "Email invalide";
+  }
+  
+  const password = formData.get('password');
+  if (password && !isStrongPassword(password)) {
+    errors.password = "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial";
+  }
+  
+  return Object.keys(errors).length === 0 ? null : errors;
+}
